@@ -1,4 +1,4 @@
-'use client';
+"use client"
 
 import { CustomerField, InvoiceForm } from '@/app/lib/definitions';
 import {
@@ -22,8 +22,10 @@ export default function EditInvoiceForm({
   const initialState: State = { message: null, errors: {} };
   const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
   const [state, formAction] = useActionState(updateInvoiceWithId, initialState);
- 
-  return <form action={formAction}>
+ console.log(state)
+  
+  return (
+    <form action={formAction}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
@@ -120,8 +122,10 @@ export default function EditInvoiceForm({
           className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
         >
           Cancel
+
         </Link>
         <Button type="submit">Edit Invoice</Button>
       </div>
     </form>
+  );
 }
